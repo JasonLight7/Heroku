@@ -1,0 +1,51 @@
+@font-face{
+	font-family: 'Brillante';
+	src:"../Fuentes/Brilliantte.ttf";
+}
+button{
+	background:#0383A5;
+	width: 70px;
+	height: 40px;
+    box-shadow: 1px 2px 5px;
+	color:white;
+	font-size: 26px;
+	font-family: 'Brillante';
+
+}
+hr{
+
+    color:black;
+
+}
+.Botones{
+	margin-left: 510px;
+	margin-top: 150px;
+	border:2.5px double #314E76;
+	background: lightgrey;
+
+
+
+}
+
+tr{
+	display: block;
+}
+
+.ceros{
+	width: 80px;
+}
+#blanco{
+	width: 345px;
+	height: 85px;
+	background: white;
+		border:2.5px double
+ #13C0E6;
+		margin-left:8px;
+		font-size: 30px;
+
+	
+
+}
+tbody{
+	height: 400px;
+}

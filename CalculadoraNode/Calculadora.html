@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Calculadora</title>
+	<link rel="stylesheet" type="text/css" href="Calculadora.css">
+</head>
+<body>
+
+<table class="Botones">
+<td><input type="text" name="resultado" id="blanco"> </input></td>
+<td><hr></td>
+ <tr> 
+ <tr> 
+ <td><button onclick="mc()">MC</button> </td>
+ <td><button onclick="mr()">MR</button> </td>
+ <td><button onclick="ms()">MS</button> </td> 
+ <td><button onclick="mas()">M+</button> </td>
+ <td><button onclick="menos()">M-</button> </td>
+ </tr>
+ <tr> 
+ <td><button onclick="flechaizquierda()">←</button> </td>
+ <td><button onclick="borrar()">CE</button> </td>
+ <td><button onclick="borrar()">C</button> </td> 
+ <td><button onclick="masmenos()">+/-</button> </td>
+ <td><button onclick="raiz()">√</button> </td>
+ </tr>
+  <tr> 
+ <td><button onclick="num('7')" value="7">7</button> </td>
+ <td><button onclick="num('8')" value="8">8</button> </td>
+ <td><button onclick="num('9')" value="9">9</button> </td> 
+ <td><button onclick="divi()">/</button> </td>
+ <td><button onclick="porcentaje()">%</button> </td>
+ </tr>
+  <tr> 
+ <td><button onclick="num('4')" value="4">4</button> </td>
+ <td><button onclick="num('5')" value="5">5</button> </td>
+ <td><button onclick="num('6')" value="6">6</button> </td> 
+ <td><button onclick="multi()">*</button> </td>
+ <td><button onclick="unoyx()">1/x</button> </td>
+ </tr>
+  <tr> 
+ <td><button onclick="num('1')" value="1">1</button> </td>
+ <td><button onclick="num('2')" value="2"">2</button> </td>
+ <td><button onclick="num('3')" value="3">3</button> </td> 
+ <td><button onclick="resta()">-</button> </td>
+ <td><button onclick="igual()" >=</button> </td>
+ </tr>
+ <tr> 
+
+ <td><button onclick="num('0')" >0</button> </td>
+  <td><button onclick="num('0')" >0</button> </td>
+
+ <td><button onclick="coma()">,</button> </td>
+ <td><button onclick="suma()">+</button> </td> 
+
+ <td><button onclick="igual()" >=</button> </td>
+ </tr>
+   </table>
+
+<script type="text/javascript">
+	
+
+	class _Operacion {
+	constructor(_numero1,_numero2){
+		this.numero1=_numero1;
+   	 	this.numero2=_numero2;
+
+	}
+   Sumarajax()
+   {
+   	  var objetoaenviar=this;
+   	  //Return a new promise.
+   	  return new Promise(function(resolve, reject){
+   	  	// Do the usual XHR stuff
+
+   	  	try{
+   	  		 var xhr = new XMLHttpRequest();
+   	  		xhr.open('POST', 'http://localhost:8080/Asumar'); 
+   	  		xhr.setRequestHeader('Content-Type', 'application/json'); 
+   	  		xhr.onload = function() {
+   	  			if (xhr.status === 200){
+   	  				resolve(JSON.parse(xhr.responseText));
+   	  			}
+   	  			else
+   	  			{
+   	  				reject(xhr);
+   	  			}
+   	  		};
+   	  		xhr.send(JSON.stringify(objetoaenviar));
+
+
+   	  	}
+   	  	catch(err){
+   	  		reject(err.message);
+   	  	}
+   	  });
+   
+   }
+    Restarajax()
+   {
+   	  var objetoaenviar=this;
+   	  //Return a new promise.
+   	  return new Promise(function(resolve, reject){
+   	  	// Do the usual XHR stuff
+
+   	  	try{
+   	  		 var xhr = new XMLHttpRequest();
+   	  		xhr.open('POST', 'http://localhost:8080/Arestar'); 
+   	  		xhr.setRequestHeader('Content-Type', 'application/json'); 
+   	  		xhr.onload = function() {
+   	  			if (xhr.status === 200){
+   	  				resolve(JSON.parse(xhr.responseText));
+   	  			}
+   	  			else
+   	  			{
+   	  				reject(xhr);
+   	  			}
+   	  		};
+   	  		xhr.send(JSON.stringify(objetoaenviar));
+
+
+   	  	}
+   	  	catch(err){
+   	  		reject(err.message);
+   	  	}
+   	  });
+   
+   }
+    Multiajax()
+   {
+   	  var objetoaenviar=this;
+   	  //Return a new promise.
+   	  return new Promise(function(resolve, reject){
+   	  	// Do the usual XHR stuff
+
+   	  	try{
+   	  		 var xhr = new XMLHttpRequest();
+   	  		xhr.open('POST', 'http://localhost:8080/Amultiplicar'); 
+   	  		xhr.setRequestHeader('Content-Type', 'application/json'); 
+   	  		xhr.onload = function() {
+   	  			if (xhr.status === 200){
+   	  				resolve(JSON.parse(xhr.responseText));
+   	  			}
+   	  			else
+   	  			{
+   	  				reject(xhr);
+   	  			}
+   	  		};
+   	  		xhr.send(JSON.stringify(objetoaenviar));
+
+
+   	  	}
+   	  	catch(err){
+   	  		reject(err.message);
+   	  	}
+   	  });
+   
+   }
+     Diviajax()
+   {
+   	  var objetoaenviar=this;
+   	  //Return a new promise.
+   	  return new Promise(function(resolve, reject){
+   	  	// Do the usual XHR stuff
+
+   	  	try{
+   	  		 var xhr = new XMLHttpRequest();
+   	  		xhr.open('POST', 'http://localhost:8080/Adividir'); 
+   	  		xhr.setRequestHeader('Content-Type', 'application/json'); 
+   	  		xhr.onload = function() {
+   	  			if (xhr.status === 200){
+   	  				resolve(JSON.parse(xhr.responseText));
+   	  			}
+   	  			else
+   	  			{
+   	  				reject(xhr);
+   	  			}
+   	  		};
+   	  		xhr.send(JSON.stringify(objetoaenviar));
+
+
+   	  	}
+   	  	catch(err){
+   	  		reject(err.message);
+   	  	}
+   	  });
+   
+   }
+   }
+
+ let numero1=0;
+ let numero2=0;
+ let tipodesigno='';
+
+
+ function num(numero){
+   document.getElementById("blanco").value=document.getElementById("blanco").value + numero;
+ }
+function suma(){
+   numero1=parseInt(document.getElementById("blanco").value);
+   tipodesigno= '+';
+   document.getElementById("blanco").value="";
+}
+function resta(){
+   numero1=parseInt(document.getElementById("blanco").value);
+   tipodesigno= '-';
+   document.getElementById("blanco").value="";
+}
+function multi(){
+   numero1=parseInt(document.getElementById("blanco").value);
+   tipodesigno= '*';
+   document.getElementById("blanco").value="";
+}
+function divi(){
+   numero1=parseInt(document.getElementById("blanco").value);
+   tipodesigno= '/';
+   document.getElementById("blanco").value="";
+}
+function borrar(){
+   document.getElementById("blanco").value="0";
+}
+function igual(){
+   numero2=parseInt(document.getElementById("blanco").value);
+   let claseoperacioninstaciada=new _Operacion(numero1,numero2);
+
+   switch(tipodesigno){
+      case '+':
+   claseoperacioninstaciada.Sumarajax().then(function(response)
+      {
+         document.getElementById("blanco").value=response;
+      },function(error)
+      {
+         document.getElementById("blanco").value="Hice algo mal :C";
+
+      });
+      break;
+      case '-':
+      claseoperacioninstaciada.restarajax().then(function(response)
+      {
+         document.getElementById("blanco").value=response;
+      },function(error)
+      {
+         document.getElementById("blanco").value="Hice algo mal :C";
+
+      });
+      break;
+   
+      case '*':
+      claseoperacioninstaciada.multiplicarajax().then(function(response)
+      {
+         document.getElementById("blanco").value=response;
+      },function(error)
+      {
+         document.getElementById("blanco").value="Hice algo mal :C";
+
+      });
+      break;
+      case '/':
+      claseoperacioninstaciada.dividirajax().then(function(response)
+      {
+         document.getElementById("blanco").value=response;
+      },function(error)
+      {
+         document.getElementById("blanco").value="Hice algo mal :C";
+
+      });
+      break;
+   }
+
+}
+</script>
+</body>
+</html>

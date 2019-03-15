@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Calendario</title>
+	<link rel="stylesheet" type="text/css" href="Calendario.css">
+</head>
+<body>
+      <h1>Calendario <span id="anio"></span><br></h1>
+   
+      
+  <button onclick="MesRestar()" id="Restar"><img src="Antes.svg"></button><input type="text" name="meses" readonly="readonly" id="mes"><button onclick="MesSumar()" id="Sumar"><img src="Despues.svg"></button>  
+     
+    
+
+<div id="tabla">
+       <table border="1px">
+       	<div id="semanas">
+       	<tr>
+       	<td>Lunes </td>
+       	<td>Martes </td>
+       	<td>Miercoles </td>
+       	<td>Jueves </td>
+       	<td>Viernes </td>
+       	<td>Sabados </td>
+       	<td>Domingo</td>
+       	</div>
+
+       <div id="Dias1"></div>
+	   <tr>
+       	<td class="transparente">31</td>
+       	<td id="1">1</td>
+       	<td id="2">2</td>
+       	<td id="3">3</td>
+       	<td id="4">4</td>
+       	<td id="5">5</td>
+       	<td id="6">6</td>
+       
+       <div id="Dias2"></div>
+        <tr>
+      
+       	<td id="7">7</td>
+       	<td id="8">8</td>
+       	<td id="9">9</td>
+       	<td id="10">10</td>
+       	<td id="11">11</td>
+       	<td id="12">12</td>
+       	<td id="13">13</td>
+
+       	 <div id="Dias3"></div>
+       <tr>
+       
+       	<td id="14">14</td>
+       	<td id="15">15</td>
+       	<td id="16">16</td>
+       	<td id="17">17</td>
+       	<td id="18">18</td>
+       	<td id="19">19</td>
+       	<td id="20">20</td>
+           
+       	 <div id="Dias4"></div>
+       <tr>
+     
+       	<td id="21">21</td>
+       	<td id="22">22</td>
+       	<td id="23">23</td>
+       	<td id="24">24</td>
+       	<td id="25">25</td>
+       	<td id="26">26</td>
+       	<td id="27">27</td>
+       	 <div id="Dias5"></div>
+       <tr>
+     
+       	<td id="28">28</td>
+       	<td id="29">29</td>
+       	<td id="30">30</td>
+       	<td id="31">31</td>
+       	<td id="1">1</td>
+       	<td id="2">2</td>
+       	  	<td>3</td>
+       	  	 <div id="Dias6"></div>
+       <tr>
+     
+       
+       </table>
+    </div>
+      
+   
+</body>
+
+ <script type="text/javascript">
+ 	var fecha= new Date();
+ 	var anio= fecha.getFullYear();
+ 	var mes = fecha.getMonth() +1 ;
+ 	var dia = fecha.getDate() +1;
+ 	DefinirMes();
+ 	function DefinirMes(){
+ 		document.getElementById('anio').innerHTML=anio;
+ 		switch(mes){
+ 			case 1:
+ 			document.getElementById('mes').value= 'Enero';
+ 			break;
+ 			case 2:
+ 			document.getElementById('mes').value= 'Febrero';
+ 			break;
+ 			case 3:
+ 			document.getElementById('mes').value= 'Marzo';
+ 			break;
+ 			case 4:
+ 			document.getElementById('mes').value= 'Abril';
+ 			break;
+ 			case 5:
+ 			document.getElementById('mes').value= 'Mayo';
+ 			break;
+ 			case 6:
+ 			document.getElementById('mes').value= 'Junio';
+ 			break;
+ 			case 7:
+ 			document.getElementById('mes').value= 'Julio';
+ 			break;
+ 			case 8:
+ 			document.getElementById('mes').value= 'Agosto';
+ 			break;
+ 			case 9:
+ 			document.getElementById('mes').value= 'Septiembre';
+ 			break;
+ 			case 10:
+ 			document.getElementById('mes').value= 'Octubre';
+ 			break;
+ 			case 11:
+ 			document.getElementById('mes').value= 'Noviembre';
+ 			break;
+ 			case 12:
+ 			document.getElementById('mes').value= 'Diciembre';
+ 			break;
+ 		}
+ 	}
+ 	function MesSumar(){
+ 		mes++;
+ 		if(mes>12){
+ 			mes=1;
+ 			anio++;
+ 		}
+ 		DefinirMes();
+    }
+ 		function MesRestar(){
+ 			mes--;
+ 			if(mes<1){
+ 				mes=12;
+ 				anio--;
+ 			}
+ 				DefinirMes();
+ 		}
+ 
+    
+</script>
+    <script src="../Form/Clasepelicula.js"> </script>
+</html>
